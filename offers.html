@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers - FoodHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        header {
+            background-color: #df8d2f;
+            color: white;
+            padding: 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .offers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .offer-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .offer-card h3 {
+            margin-top: 0;
+            color: #ff6347;
+        }
+
+        .offer-card p {
+            color: #666;
+        }
+
+        footer {
+            background-color: #df8d2f;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .light-text {
+            position: absolute;
+            font-size: 30px;
+            display: none;
+            right: 20px;
+            cursor:pointer;
+            color: rgb(255, 255, 255);
+
+
+
+            bottom: 40px;
+        }
+
+        .dark-text {
+            color: rgb(0, 0, 0);
+            position: absolute;
+            font-size: 30px;
+            right: 20px;
+            cursor: pointer;
+
+
+            bottom: 40px;
+        }
+
+        .dark {
+            background-color: black;
+            transition: background-color 0.5s ease; 
+        }
+
+        .light {
+            background-color: #f2f2f2;
+            transition: background-color 0.5s ease; 
+
+        }
+        .offer-card-dark{
+            background-color:#ffcb00;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+
+        }
+        .offer-card-dark h3{
+            color:#fc0000;
+        }
+        .offer-card-dark p{
+            color:#000000;
+        }
+        .special-dark{
+            color:white;    
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>FoodHub Offers</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="offers.html">Offers</a>
+            <a href="help.html">Help</a>
+            <a href="signin.html">Sign In</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <main>
+        <div class="dark-text">
+            <pre>
+            PRESS 1 
+            FOR DARK MODE
+                </pre>
+
+        </div>
+        <div class="light-text">
+            <pre>
+             PRESS 2
+             FOR LIGHT MODE
+            </pre>
+
+        </div>
+        <section class="offers">
+            <h2 class="special">Special Offers</h2>
+            <div class="offer-card">
+                <h3>Buy 1 Get 1 Free</h3>
+                <p>Available on selected items</p>
+            </div>
+            <div class="offer-card">
+                <h3>20% Off</h3>
+                <p>On your first order</p>
+            </div>
+            <div class="offer-card">
+                <h3>Free Dessert</h3>
+                <p>With orders over $50</p>
+            </div>
+            <div class="offer-card">
+                <h3>Weekend Special</h3>
+                <p>30% off on all items</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 FoodHub. All rights reserved.</p>
+    </footer>
+    <script>
+       
+        var offers = document.getElementsByClassName("offer-card");
+        var body = document.querySelector("body");
+        var darktext = document.querySelector(".dark-text");
+        var lighttext = document.querySelector(".light-text");
+        var special = document.querySelector(".special");
+
+        let flag = 0;
+        function dark(){
+            body.classList.add("dark");
+                    for(let offer of offers){
+                        offer.classList.add("offer-card-dark");
+
+                    }
+                    special.style.color="white";
+
+                    body.classList.remove("light");
+
+
+                    darktext.style.display = "none";
+                    lighttext.style.display = "block";
+                    flag = 1;
+
+        }
+        function light(){
+            body.classList.remove("dark");
+            for (let offer of offers) {
+                offer.classList.remove("offer-card-dark");
+            }
+            body.classList.add("light");
+            special.style.color="black";
+            lighttext.style.display = "none";
+            darktext.style.display = "block";
+            flag = 0;
+
+        }
+        body.addEventListener("keydown", function (event) {
+            if (event.key === '1') {
+                if (flag === 0) {
+                    dark();
+                }
+            }
+            else if (event.key === '2') {
+                if (flag === 1) {
+                    light();
+                   
+                }
+            }
+            darktext.addEventListener('click',function(){
+                if (flag === 0) {
+                    dark();
+                }
+            });
+            lighttext.addEventListener('click', function () {
+                if (flag === 1) {
+                    light();
+                }
+            });
+
+        })
+    </script>
+</body>
+
+</html>

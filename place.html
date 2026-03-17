@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Places to Eat</title>
+    <style>
+        .rest-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .rest-h1, .rest-h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .rest-h2 {
+            margin-top: 40px;
+            font-size: 24px;
+            color: #080808;
+        }
+
+        .rest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .rest-box {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .rest-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .rest-box p {
+            color: #333;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .rest-hidden {
+            display: none;
+        }
+
+        .rest-toggle-input {
+            display: none;
+        }
+
+        .rest-toggle-label {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 200px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .rest-toggle-label:hover {
+            background-color: #004999;
+        }
+
+        .rest-toggle-input:checked ~ .rest-grid .rest-hidden {
+            display: block;
+        }
+
+        .rest-toggle-input:checked ~ .rest-toggle-label::after {
+            content: 'See Less';
+        }
+
+        .rest-toggle-label::after {
+            content: 'See More';
+        }
+
+        @media (max-width: 768px) {
+            .rest-h1, .rest-h2 {
+                font-size: 18px;
+            }
+
+            .rest-box p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .rest-h1, .rest-h2 {
+                font-size: 16px;
+            }
+
+            .rest-box p {
+                font-size: 12px;
+            }
+
+            .rest-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="rest-container">
+        <h1 class="rest-h1">Best Places to Eat Across Cities</h1>
+        <input type="checkbox" id="rest-toggle" class="rest-toggle-input">
+        <div class="rest-grid">
+            <div class="rest-box"><p>Best Restaurants in Bangalore</p></div>
+            <div class="rest-box"><p>Best Restaurants in Pune</p></div>
+            <div class="rest-box"><p>Best Restaurants in Mumbai</p></div>
+            <div class="rest-box"><p>Best Restaurants in Delhi</p></div>
+            <div class="rest-box"><p>Best Restaurants in Hyderabad</p></div>
+            <div class="rest-box"><p>Best Restaurants in Kolkata</p></div>
+            <div class="rest-box"><p>Best Restaurants in Chennai</p></div>
+            <div class="rest-box"><p>Best Restaurants in Chandigarh</p></div>
+            <div class="rest-box"><p>Best Restaurants in Ahmedabad</p></div>
+            <div class="rest-box"><p>Best Restaurants in Jaipur</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Nagpur</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Bhubaneswar</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Kochi</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Surat</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Dehradun</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Ludhiana</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Patna</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Mangaluru</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Bhopal</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Gurgaon</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Coimbatore</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Agra</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Noida</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Vijayawada</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Guwahati</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Mysore</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Pondicherry</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Thiruvananthapuram</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Ranchi</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Vizag</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Udaipur</p></div>
+            <div class="rest-box rest-hidden"><p>Best Restaurants in Vadodara</p></div>
+        </div>
+        <label for="rest-toggle" class="rest-toggle-label"></label>
+
+        <h2 class="rest-h2">Explore Restaurants Near Me</h2>
+        <input type="checkbox" id="rest-toggle2" class="rest-toggle-input">
+        <div class="rest-grid">
+            <div class="rest-box"><p>Chinese Restaurant Near Me</p></div>
+            <div class="rest-box"><p>South Indian Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Indian Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Kerala Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Korean Restaurant Near Me</p></div>
+            <div class="rest-box"><p>North Indian Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Seafood Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Bengali Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Punjabi Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Italian Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Andhra Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Biryani Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Japanese Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Arabian Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Fast Food Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Jain Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Gujarati Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Thai Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Pizzas Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Asian Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Cafe Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Continental Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Mexican Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Mughlai Restaurant Near Me</p></div>
+            <div class="rest-box"><p>Sushi Restaurant Near Me</p></div>
+            <div class="rest-box rest-hidden"><p>French Restaurant Near Me</p></div>
+            <div class="rest-box rest-hidden"><p>European Restaurant Near Me</p></div>
+            <div class="rest-box rest-hidden"><p>Lebanese Restaurant Near Me</p></div>
+            <div class="rest-box rest-hidden"><p>Turkish Restaurant Near Me</p></div>
+            <div class="rest-box rest-hidden"><p>American Restaurant Near Me</p></div>
+            <div class="rest-box rest-hidden"><p>Malaysian Restaurant Near Me</p></div>
+            <div class="rest-box rest-hidden"><p>Iranian Restaurant Near Me</p></div>
+            <div class="rest-box rest-hidden"><p>Sri Lankan Restaurant Near Me</p></div>
+            <div class="rest-box rest-hidden"><p>Spanish Restaurant Near Me</p></div>
+            <div class="rest-box rest-hidden"><p>German Restaurant Near Me</p></div>
+        </div>
+        <label for="rest-toggle2" class="rest-toggle-label"></label>
+    </div>
+</body>
+</html>

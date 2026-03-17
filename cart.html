@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Spicytaste</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        header {
+            background-color: #df8d2f;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            height:80px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav a {
+            color: white;
+            margin-left: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cart {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .cart-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cart-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .cart-item img {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .cart-item-details {
+            flex-grow: 1;
+            margin-left: 1rem;
+        }
+        .cart-item-details h3 {
+            margin: 0;
+            color: #ff6347;
+        }
+        .cart-item-details p {
+            margin: 0.5rem 0;
+            color: #666;
+        }
+        .cart-item-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .cart-item-actions input {
+            width: 50px;
+            text-align: center;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .cart-item-actions button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cart-item-actions button:hover {
+            background-color: #e5533d;
+        }
+        .total {
+            text-align: right;
+            font-size: 1.5rem;
+            color: #ff6347;
+            margin-top: 2rem;
+        }
+        footer {
+            background-color: #df8d2f;
+            color: white;
+            text-align: center;
+            padding: 0.1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .buttonn{
+            background-color: #ff6347;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom:40px;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Spicytaste</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="offers.html">Offers</a>
+            <a href="help.html">Help</a>
+            <a href="signin.html">Sign In</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <main>
+        <section class="cart">
+            <h2>Your Cart</h2>
+            <div class="cart-item">
+                <img src="dessert2.jpeg" alt="Food Item 1">
+                <div class="cart-item-details">
+                    <h3>CAKE</h3>
+                    <p id="price">$10.00</p>
+                </div>
+                <div class="cart-item-actions">
+                    <input id="input" type="number" value="1" min="1">
+                    <button id="remove">Remove</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="img3.jpeg" alt="Food Item 2">
+                <div class="cart-item-details">
+                    <h3>BURGER</h3>
+                    <p id="price2">$15.00</p>
+                </div>
+                <div class="cart-item-actions">
+                    <input id="input2" type="number" value="1" min="1">
+                    <button>Remove</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="rest7.avif" alt="Food Item 3">
+                <div class="cart-item-details">
+                    <h3>Pizza</h3>
+                    <p id="price3">$20.00</p>
+                </div>
+                <div class="cart-item-actions">
+                    <input id="input3" type="number" value="1" min="1">
+                    <button>Remove</button>
+                </div>
+            </div>
+            <div class="total">
+                <p id="final">Total: $0.00</p>
+                <a href="thank.html"><button class="buttonn">Checkout</button></a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Spicytaste. All rights reserved.</p>
+    </footer>
+    <script>
+        /*
+        var price = document.getElementById("price");
+        var price2 = document.getElementById("price2");
+        var price3 = document.getElementById("price3");
+        var inputa = document.getElementById("input");
+        var input2 = document.getElementById("input2");
+        var input3 = document.getElementById("input3");
+        var final = document.getElementById("final");
+        var remove= document.getElementById("remove");
+        const base= 10.00;
+        const base2= 15.00;
+        const base3= 20.00;
+        const finalpricing = 0.00;
+        inputa.addEventListener("input", ()=>{
+            if(inputa == 0 || inputa == ""){
+                price.textContent = 0;
+
+            }
+            else{
+            const inputing = parseInt(inputa.value, 10); //parseint is a function which convert string to integer
+            //yaha par parseint ka base 10 hai matlab decimal number with base 10
+            //parseint basically integer me convert karta hai string values ko
+            const input22 = parseInt(input2.value, 10);
+            const input33 = parseInt(input3.values, 10);
+            const price2 = base2 * input22;
+            const price3 = base3 * input33;
+
+            
+
+            const finalprice = finalpricing + ( base * inputing) + (price2) + (price3);
+            
+
+            price2.textContent = `$${price2}`;
+            price3.textContent = `$${price3}`;
+            price.textContent = `$${finalprice.toFixed(2)}`;
+            //final.textContent = finalprice * base;
+            final.textContent = `Total: $${finalprice.toFixed(2)}`;
+            //tofixed basically... 2 places tak point values return karta hai
+            } 
+            
+
+        })
+        remove.addEventListener("click", ()=>{
+            inputa.value = 1; 
+            price.textContent = `$${base.toFixed(2)}`;
+            final.textContent = `Total: $0.00`;
+            
+        })
+
+        console.log(inputa);
+        var remove = document.querySelector(".remove");
+        
+
+           */
+           document.addEventListener("DOMContentLoaded", function() {
+            // Get elements
+            var price1 = document.getElementById("price");
+            var price2 = document.getElementById("price2");
+            var price3 = document.getElementById("price3");
+        
+            var input1 = document.getElementById("input");
+            var input2 = document.getElementById("input2");
+            var input3 = document.getElementById("input3");
+        
+            var final = document.getElementById("final");
+        
+            // Base prices for each item
+            const basePrice1 = 10.00;
+            const basePrice2 = 15.00;
+            const basePrice3 = 20.00;
+        
+            // Calculate the total price
+            function calculateTotal() {
+                const quantity1 = parseInt(input1.value, 10) || 0;
+                const quantity2 = parseInt(input2.value, 10) || 0;
+                const quantity3 = parseInt(input3.value, 10) || 0;
+        
+                const total1 = basePrice1 * quantity1;
+                const total2 = basePrice2 * quantity2;
+                const total3 = basePrice3 * quantity3;
+        
+                const finalTotal = total1 + total2 + total3;
+        
+                price1.textContent = `$${total1.toFixed(2)}`;
+                price2.textContent = `$${total2.toFixed(2)}`;
+                price3.textContent = `$${total3.toFixed(2)}`;
+                final.textContent = `Total: $${finalTotal.toFixed(2)}`;
+            }
+        
+            // Event listeners for input changes
+            input1.addEventListener("input", calculateTotal);
+            input2.addEventListener("input", calculateTotal);
+            input3.addEventListener("input", calculateTotal);
+        
+            // Remove button functionality
+            document.querySelectorAll(".cart-item").forEach((item, index) => {
+                const removeButton = item.querySelector("button");
+        
+                removeButton.addEventListener("click", () => {
+                    if (index === 0) {
+                        input1.value = 0;
+                    } else if (index === 1) {
+                        input2.value = 0;
+                    } else if (index === 2) {
+                        input3.value = 0;
+                    }
+        
+                    calculateTotal(); // Recalculate the total after resetting the quantity
+                });
+            });
+        
+            // Initial calculation
+            calculateTotal();
+        });
+        
+
+
+        
+    </script>
+</body>
+</html>

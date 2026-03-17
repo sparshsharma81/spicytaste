@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Price Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Price Calculator</h1>
+  <form>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" value="0" min="0">
+    <button id="reset-button">Reset</button>
+    <p>Price: <span id="price">0</span></p>
+  </form>
+
+  <script>
+    const quantityInput = document.getElementById('quantity');
+    const priceElement = document.getElementById('price');
+    const resetButton = document.getElementById('reset-button');
+    const basePrice = 10.00; 
+    
+
+    quantityInput.addEventListener('input', () => {
+      const quantity = parseInt(quantityInput.value, 10);
+      const totalPrice = basePrice * quantity;
+      priceElement.textContent = totalPrice.toFixed(2);
+    });
+
+    resetButton.addEventListener('click', () => {
+      quantityInput.value = 1;
+      priceElement.textContent = basePrice.toFixed(2);
+    });
+  </script>
+</body>
+</html>
